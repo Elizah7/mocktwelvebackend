@@ -22,7 +22,16 @@ postRoutes.get("/", async (req, res) => {
 postRoutes.get("/search", async (req, res) => {
   const query = req.query
   try {
-    const getdata = await postModel.find(query)
+    const getdata = await postModel.find({role:query})
+    res.send({ msg: getdata })
+  } catch (error) {
+    res.send({ msg: error })
+  }
+})
+postRoutes.get("/sort", async (req, res) => {
+  const query = req.query
+  try {
+    const getdata = await postModel.find().sort()
     res.send({ msg: getdata })
   } catch (error) {
     res.send({ msg: error })
