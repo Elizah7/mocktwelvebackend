@@ -8,7 +8,7 @@ postShema = mongoose.Schema({
     location: String,
     role:String,
     level:String,
-    postion:String,
+    position:String,
     language:String,
     contract:String
 })
