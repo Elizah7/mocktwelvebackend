@@ -12,7 +12,7 @@ postRoutes.get("/", async (req, res) => {
   const page = Math.max(0, req.params.page)
 
   try {
-    const getdata = await postModel.find().select('name').limit(perPage).skip(perPage * page)
+    const getdata = await postModel.find().limit(perPage).skip(perPage * page)
     res.send({ msg: getdata })
   } catch (error) {
     res.send({ msg: error })
@@ -31,7 +31,7 @@ postRoutes.get("/search", async (req, res) => {
 
 
 postRoutes.post("/add", async (req, res) => {
-
+console.log(req.body)
   try {
     const singledata = new postModel(req.body)
     await singledata.save()
