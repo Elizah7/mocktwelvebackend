@@ -13,7 +13,7 @@ postRoutes.get("/", async (req, res) => {
 
   try {
     const getdata = await postModel.find().select('name').limit(perPage).skip(perPage * page)
-    res.send({ msg: "Data added succesfully", data: getdata })
+    res.send({ msg: getdata })
   } catch (error) {
     res.send({ msg: error })
   }
@@ -23,7 +23,7 @@ postRoutes.get("/search", async (req, res) => {
   const query = req.query
   try {
     const getdata = await postModel.find(query)
-    res.send({ msg: "Data added succesfully", data: getdata })
+    res.send({ msg: getdata })
   } catch (error) {
     res.send({ msg: error })
   }
