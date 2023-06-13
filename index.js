@@ -2,7 +2,8 @@ const express = require("express")
 const cors = require("cors")
 const { connection } = require("./config/db")
 
-const postRouter = require("./routes/post.routes")
+
+const postRoutes = require("./routes/post.routes")
 
 
 require("dotenv").config()
@@ -11,7 +12,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.use("/post",postRouter)
+app.use("/post",postRoutes)
 
 app.listen(process.env.port, async()=>{
 
